@@ -1,4 +1,4 @@
-import { coins, tokens } from 'keepix-tokens';
+import { coins, tokens } from '@keepix/tokens';
 import { WalletLibraryInterface } from './walletLibraryInterface';
 
 /**
@@ -7,18 +7,26 @@ import { WalletLibraryInterface } from './walletLibraryInterface';
 export class Wallet {
     private wallet: any;
     
-    constructor(args: any) {
+    constructor() {
+    }
+
+    public async init(args: any): Promise<Wallet> {
         if (coins[args.type] === undefined) {
             throw new Error(`Coin ${args.type} not found on the coins-list. Please Add it on our github (token-list).`);
         }
         const lib: WalletLibraryInterface = require(`@keepix/wallets-${coins[args.type].type}`);
-        this.wallet = new lib.Wallet({
+        const formattedArgs = {
             ... args,
             keepixTokens: {
                 coins,
                 tokens
             }
-        });
+        };
+        this.wallet = new lib.Wallet(formattedArgs);
+        if (this.wallet.init !== undefined) {
+            await this.wallet.init(formattedArgs);
+        }
+        return this;
     }
 
     // PUBLIC

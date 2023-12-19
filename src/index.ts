@@ -1,1 +1,1 @@
-export { Wallet, coins, tokens } from './Wallets';
+export { Wallet, coins, tokens, WalletLibraryInterface } from './Wallets';
