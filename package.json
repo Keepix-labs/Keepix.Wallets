@@ -1,6 +1,6 @@
 {
   "name": "@keepix/wallets",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "description": "Wallets library",
   "private": false,
   "main": "dist/index.js",
@@ -38,6 +38,7 @@
     "@keepix/tokens": "^0.0.24",
     "@keepix/wallets-algo": "^0.0.1",
     "@keepix/wallets-bitcoin": "^0.0.6",
+    "@keepix/wallets-cosmos": "^0.0.1",
     "@keepix/wallets-evm": "^0.0.5",
     "@keepix/wallets-massa": "^0.0.3",
     "@keepix/wallets-solana": "^0.0.2",
