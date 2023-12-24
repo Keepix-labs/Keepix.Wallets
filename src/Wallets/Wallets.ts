@@ -69,6 +69,13 @@ export class Wallet {
         return await this.wallet.sendCoinTo(receiverAddress, amount);
     }
 
+    public async getTokenInformation(tokenAddress: string) {
+        if (this.wallet.getTokenInformation === undefined) {
+            return undefined;
+        }
+        return await this.wallet.getTokenInformation(tokenAddress);
+    }
+
     public async sendTokenTo(tokenAddress: string, receiverAddress: string, amount: string) {
         return await this.wallet.sendTokenTo(tokenAddress, receiverAddress, amount);
     }
